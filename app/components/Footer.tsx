@@ -6,7 +6,7 @@ export default function Footer() {
       {/* Logo */}
       <div className="flex items-center gap-2 mb-3">
         <Car className="text-yellow-400 w-6 h-6" />
-        <span className="text-xl font-bold">AutoRent</span>
+        <span className="text-xl font-bold">RentalKu</span>
       </div>
       <p className="text-gray-400 text-sm leading-relaxed mb-6">
         Layanan sewa mobil terpercaya dengan armada lengkap dan harga terjangkau.
@@ -16,15 +16,15 @@ export default function Footer() {
       <div className="flex flex-col gap-3 mb-6">
         <div className="flex items-center gap-3 text-sm text-gray-300">
           <MapPin className="w-4 h-4 text-yellow-400 shrink-0" />
-          <span>Jl. Raya No. 123, Kota Anda</span>
+          <span>Jl. Raya No. 123, Kota Malang</span>
         </div>
         <div className="flex items-center gap-3 text-sm text-gray-300">
           <Phone className="w-4 h-4 text-yellow-400 shrink-0" />
-          <span>+62 812-3456-7890</span>
+          <span>+62 813-5871-4035</span>
         </div>
         <div className="flex items-center gap-3 text-sm text-gray-300">
           <Mail className="w-4 h-4 text-yellow-400 shrink-0" />
-          <span>autorent@email.com</span>
+          <span>RentalKu@email.com</span>
         </div>
       </div>
 

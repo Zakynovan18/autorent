@@ -22,13 +22,17 @@ type Car = {
   deskripsi: string;
 };
 
-const categories = ["Semua", "City Car", "SUV", "Luxury"];
+const categories = ["Semua", "City Car", "SUV", "Luxury", "MPV", "Truck"];
 
-export default function CarList() {
+export default function CarList({ initialCategory = "Semua" }: { initialCategory?: string }) {
   const [search, setSearch] = useState("");
-  const [activeCategory, setActiveCategory] = useState("Semua");
+  const [activeCategory, setActiveCategory] = useState(initialCategory);
   const [cars, setCars] = useState<Car[]>([]);
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setActiveCategory(initialCategory);
+  }, [initialCategory]);
 
   useEffect(() => {
     const fetchCars = async () => {

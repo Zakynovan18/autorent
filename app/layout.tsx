@@ -20,6 +20,7 @@ export default function RootLayout({
     <html lang="id">
       <body className={inter.className}>
         {children}
+        <WAButton />
         <BottomNav />
       </body>
     </html>

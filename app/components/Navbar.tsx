@@ -27,9 +27,6 @@ export default function Navbar() {
 
         {/* Right Icons */}
         <div className="flex items-center gap-3">
-          <Link href="/admin/login" className="text-gray-600 hover:text-yellow-400 transition">
-            <User className="w-6 h-6" />
-          </Link>
           <button
             onClick={() => setDrawerOpen(true)}
             className="text-gray-600 hover:text-yellow-400 transition"

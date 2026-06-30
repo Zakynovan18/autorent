@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const slides = [
   {
@@ -25,6 +25,8 @@ const slides = [
 
 export default function HeroSection() {
   const [current, setCurrent] = useState(0);
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -33,8 +35,37 @@ export default function HeroSection() {
     return () => clearInterval(interval);
   }, []);
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    const diff = touchStartX.current - touchEndX.current;
+
+    if (diff > 50) {
+      // Swipe kiri → next
+      setCurrent((prev) => (prev + 1) % slides.length);
+    } else if (diff < -50) {
+      // Swipe kanan → prev
+      setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
+    }
+
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
+
   return (
-    <section className="relative overflow-hidden h-72">
+    <section
+      className="relative overflow-hidden h-72"
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
       {slides.map((slide, index) => (
         <div
           key={index}

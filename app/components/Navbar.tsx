@@ -18,13 +18,13 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="bg-white shadow-sm px-4 py-3 flex items-center justify-between sticky top-0 z-50">
+      <nav className="bg-white shadow-sm px-4 py-2 flex items-center justify-between sticky top-0 z-50 h-16">
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <img
             src="/RentalKu.png"
             alt="RentalKu"
-            className="h-14 w-auto object-contain"
+            className="h-12 w-auto object-contain"
           />
         </Link>
 

@@ -35,7 +35,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="px-5 py-6">
+    <section className="px-5 pt-0 pb-6">
       <ScrollReveal>
         <h2 className="text-xl font-bold text-gray-800 mb-4">Pertanyaan Umum</h2>
       </ScrollReveal>

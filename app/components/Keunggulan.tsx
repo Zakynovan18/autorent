@@ -28,7 +28,7 @@ const keunggulan = [
 
 export default function Keunggulan() {
   return (
-    <section className="px-5 pt-2 pb-6">
+    <section className="px-5 pt-0 pb-4">
       <ScrollReveal>
         <h2 className="text-xl font-bold text-gray-800 mb-4">Mengapa Memilih Kami?</h2>
       </ScrollReveal>

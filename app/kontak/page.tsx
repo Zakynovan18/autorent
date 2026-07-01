@@ -33,7 +33,7 @@ export default function KontakPage() {
           </div>
           <div>
             <p className="text-xs text-gray-400 mb-0.5">Telepon</p>
-            <p className="font-semibold text-gray-800">+62 812-3456-7890</p>
+            <p className="font-semibold text-gray-800">+62 813-5871-4035</p>
           </div>
         </div>
 
@@ -43,7 +43,7 @@ export default function KontakPage() {
           </div>
           <div>
             <p className="text-xs text-gray-400 mb-0.5">Email</p>
-            <p className="font-semibold text-gray-800">autorent@email.com</p>
+            <p className="font-semibold text-gray-800">RentalKu@email.com</p>
           </div>
         </div>
 

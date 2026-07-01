@@ -23,7 +23,7 @@ const steps = [
 
 export default function CaraBooking() {
   return (
-    <section className="px-5 py-6 bg-gray-900 mx-5 rounded-3xl mb-6">
+    <section className="px-5 py-6 bg-gray-900 mx-5 rounded-3xl mb-24">
       <h2 className="text-xl font-bold text-white mb-5">Cara Booking</h2>
       <div className="flex flex-col gap-4">
         {steps.map(({ icon: Icon, step, title, desc }) => (

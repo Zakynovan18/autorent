@@ -5,19 +5,19 @@ const steps = [
     icon: Search,
     step: "01",
     title: "Pilih Mobil",
-    desc: "Cari dan pilih mobil yang sesuai kebutuhan dan budgetmu.",
+    desc: "Cari dan pilih mobil yang sesuai kebutuhan dan keinginan Anda.",
   },
   {
     icon: MessageCircle,
     step: "02",
     title: "Hubungi via WA",
-    desc: "Klik tombol booking dan langsung chat admin kami di WhatsApp.",
+    desc: "Klik tombol booking untuk melihat detail dan langsung chat admin kami di WhatsApp.",
   },
   {
     icon: Car,
     step: "03",
     title: "Nikmati Perjalanan",
-    desc: "Mobil siap diantar ke lokasi kamu. Selamat menikmati!",
+    desc: "Mobil siap diambil atau diantar ke lokasi Anda. Selamat menikmati!",
   },
 ];
 

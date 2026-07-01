@@ -1,22 +1,25 @@
 "use client";
 
+import { usePathname } from "next/navigation";
+
 export default function WAButton() {
+  const pathname = usePathname();
+
+  // Sembunyikan di halaman detail mobil, kontak dan admin
+  if (pathname.startsWith("/mobil/") || pathname.startsWith("/admin") || pathname.startsWith("/kontak")) return null;
+
   const handleWA = () => {
-    const pesan = `Halo AutoRent! Saya ingin bertanya mengenai layanan sewa mobil.`;
+    const pesan = `Halo RentalKu! Saya ingin bertanya mengenai layanan sewa mobil.`;
     window.open(`https://wa.me/6281358714035?text=${encodeURIComponent(pesan)}`, "_blank");
   };
 
   return (
     <div className="fixed bottom-24 right-4 z-50">
-      {/* Efek ping */}
       <span className="absolute inset-0 rounded-full bg-green-400 opacity-75 animate-ping" />
-
-      {/* Button WA */}
       <button
         onClick={handleWA}
         className="relative bg-green-500 hover:bg-green-600 text-white p-3.5 rounded-full shadow-lg transition"
       >
-        {/* Icon WA SVG */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"

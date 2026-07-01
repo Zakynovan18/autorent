@@ -30,7 +30,7 @@ export default function Footer() {
 
       {/* Sosmed */}
       <div className="flex items-center gap-3 mb-6">
-        <a href="https://instagram.com/zakynovannd" target="_blank"
+        <a href="https://www.instagram.com/zakynovannd_?igsh=MWp0NGowNTBoeXo1eg==" target="_blank"
           className="bg-gray-800 hover:bg-yellow-400 px-4 py-2 rounded-xl text-sm font-medium transition">
           Instagram
         </a>

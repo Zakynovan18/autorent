@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Search } from "lucide-react";
+import Link from "next/link";
 import CarCard from "./CarCard";
 import { supabase } from "@/lib/supabase";
 
@@ -24,7 +25,13 @@ type Car = {
 
 const categories = ["Semua", "City Car", "SUV", "Luxury", "MPV", "Truck"];
 
-export default function CarList({ initialCategory = "Semua" }: { initialCategory?: string }) {
+export default function CarList({
+  initialCategory = "Semua",
+  limit,
+}: {
+  initialCategory?: string;
+  limit?: number;
+}) {
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState(initialCategory);
   const [cars, setCars] = useState<Car[]>([]);
@@ -51,35 +58,54 @@ export default function CarList({ initialCategory = "Semua" }: { initialCategory
     return matchCategory && matchSearch;
   });
 
+  const displayed = limit ? filtered.slice(0, limit) : filtered;
+
   return (
     <section className="bg-gray-50 px-5 pt-5 pb-24">
-      {/* Search Bar */}
-      <div className="relative mb-4">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
-        <input
-          type="text"
-          placeholder="Cari model favorit kamu..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          className="w-full pl-10 pr-4 py-3 rounded-2xl border border-gray-200 bg-white text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
-        />
-      </div>
+      {/* Search Bar — sembunyikan kalau ada limit */}
+      {!limit && (
+        <div className="relative mb-4">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
+          <input
+            type="text"
+            placeholder="Cari model favorit kamu..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="w-full pl-10 pr-4 py-3 rounded-2xl border border-gray-200 bg-white text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-400"
+          />
+        </div>
+      )}
 
-      {/* Filter Kategori */}
-      <div className="flex flex-row gap-2 mb-6 overflow-x-auto pb-1">
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => setActiveCategory(cat)}
-            className={`px-5 py-2 rounded-full text-sm font-medium whitespace-nowrap transition border ${activeCategory === cat
-                ? "bg-gray-800 text-white border-gray-800"
-                : "bg-white text-gray-500 border-gray-200"
-              }`}
+      {/* Filter Kategori — sembunyikan kalau ada limit */}
+      {!limit && (
+        <div className="flex flex-row gap-2 mb-6 overflow-x-auto pb-1">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`px-5 py-2 rounded-full text-sm font-medium whitespace-nowrap transition border ${activeCategory === cat
+                  ? "bg-gray-800 text-white border-gray-800"
+                  : "bg-white text-gray-500 border-gray-200"
+                }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+      )}
+
+      {/* Header section home */}
+      {limit && (
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-lg font-bold text-gray-800">Pilihan Mobil Terbaik</h2>
+          <Link
+            href="/katalog"
+            className="text-yellow-500 text-sm font-medium hover:text-yellow-600 transition"
           >
-            {cat}
-          </button>
-        ))}
-      </div>
+            Lihat Semua →
+          </Link>
+        </div>
+      )}
 
       {/* Loading */}
       {loading && (
@@ -91,8 +117,8 @@ export default function CarList({ initialCategory = "Semua" }: { initialCategory
       {/* Car Cards */}
       {!loading && (
         <div className="flex flex-col gap-6">
-          {filtered.length > 0 ? (
-            filtered.map((car) => (
+          {displayed.length > 0 ? (
+            displayed.map((car) => (
               <CarCard
                 key={car.id}
                 car={{

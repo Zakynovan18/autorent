@@ -9,7 +9,7 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <main>
-        <CarList />
+        <CarList limit={4} />
       </main>
       <Footer />
     </div>

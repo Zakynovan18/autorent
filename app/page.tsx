@@ -11,8 +11,8 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <main>
-        <Keunggulan />
         <CarList limit={4} />
+        <Keunggulan />
         <CaraBooking />
       </main>
       <Footer />

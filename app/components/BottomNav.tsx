@@ -7,6 +7,9 @@ import { usePathname } from "next/navigation";
 export default function BottomNav() {
   const pathname = usePathname();
 
+  // Sembunyikan di halaman admin
+  if (pathname.startsWith("/admin")) return null;
+
   const menus = [
     { href: "/", label: "Beranda", icon: Home },
     { href: "/katalog", label: "Katalog", icon: Car },
@@ -15,7 +18,7 @@ export default function BottomNav() {
   ];
 
   return (
-    <nav className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[480px] bg-white border-t border-gray-200 shadow-lg z-50">
+    <nav className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-120 bg-white border-t border-gray-200 shadow-lg z-50">
       <div className="flex items-center justify-around py-2">
         {menus.map(({ href, label, icon: Icon }) => {
           const isActive = pathname === href;
@@ -25,14 +28,8 @@ export default function BottomNav() {
               href={href}
               className="flex flex-col items-center gap-1 px-4 py-1"
             >
-              <Icon
-                className={`w-5 h-5 ${isActive ? "text-yellow-400" : "text-gray-400"
-                  }`}
-              />
-              <span
-                className={`text-xs font-medium ${isActive ? "text-yellow-400" : "text-gray-400"
-                  }`}
-              >
+              <Icon className={`w-5 h-5 ${isActive ? "text-yellow-400" : "text-gray-400"}`} />
+              <span className={`text-xs font-medium ${isActive ? "text-yellow-400" : "text-gray-400"}`}>
                 {label}
               </span>
             </Link>

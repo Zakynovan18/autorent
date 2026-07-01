@@ -5,6 +5,7 @@ import { Search } from "lucide-react";
 import Link from "next/link";
 import CarCard from "./CarCard";
 import { supabase } from "@/lib/supabase";
+import ScrollReveal from "./ScrollReveal";
 
 type Car = {
   id: number;
@@ -84,8 +85,8 @@ export default function CarList({
               key={cat}
               onClick={() => setActiveCategory(cat)}
               className={`px-5 py-2 rounded-full text-sm font-medium whitespace-nowrap transition border ${activeCategory === cat
-                  ? "bg-gray-800 text-white border-gray-800"
-                  : "bg-white text-gray-500 border-gray-200"
+                ? "bg-gray-800 text-white border-gray-800"
+                : "bg-white text-gray-500 border-gray-200"
                 }`}
             >
               {cat}
@@ -118,21 +119,22 @@ export default function CarList({
       {!loading && (
         <div className="flex flex-col gap-6">
           {displayed.length > 0 ? (
-            displayed.map((car) => (
-              <CarCard
-                key={car.id}
-                car={{
-                  id: car.id,
-                  name: car.nama,
-                  category: car.kategori,
-                  seats: car.seats,
-                  transmission: car.transmission,
-                  price: car.price,
-                  rating: car.rating,
-                  available: car.available,
-                  image: car.image_url,
-                }}
-              />
+            displayed.map((car, index) => (
+              <ScrollReveal key={car.id} delay={index * 0.1} direction="up">
+                <CarCard
+                  car={{
+                    id: car.id,
+                    name: car.nama,
+                    category: car.kategori,
+                    seats: car.seats,
+                    transmission: car.transmission,
+                    price: car.price,
+                    rating: car.rating,
+                    available: car.available,
+                    image: car.image_url,
+                  }}
+                />
+              </ScrollReveal>
             ))
           ) : (
             <p className="text-center text-gray-400 mt-10">Mobil tidak ditemukan.</p>

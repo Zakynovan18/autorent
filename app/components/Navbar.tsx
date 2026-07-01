@@ -20,9 +20,12 @@ export default function Navbar() {
     <>
       <nav className="bg-white shadow-sm px-4 py-3 flex items-center justify-between sticky top-0 z-50">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
-          <Car className="text-yellow-400 w-6 h-6" />
-          <span className="text-xl font-bold text-gray-800">RentalKu</span>
+        <Link href="/" className="flex items-center">
+          <img
+            src="/RentalKu.png"
+            alt="RentalKu"
+            className="h-10 w-auto object-contain"
+          />
         </Link>
 
         {/* Right Icons */}

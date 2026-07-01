@@ -27,12 +27,12 @@ export default function BottomNav() {
               href={href}
               className="flex flex-col items-center gap-1 px-3 py-1"
             >
-              <div className={`p-2 rounded-full transition-all duration-300 ${isActive ? "bg-yellow-400" : "bg-transparent"
+              <div className={`p-2 rounded-full transition-all duration-300 ${isActive ? "bg-yellow-300" : "bg-transparent"
                 }`}>
-                <Icon className={`w-5 h-5 transition-all duration-300 ${isActive ? "text-gray-800" : "text-gray-400"
+                <Icon className={`w-5 h-5 transition-all duration-300 ${isActive ? "text-gray-800" : "text-gray-600"
                   }`} />
               </div>
-              <span className={`text-xs font-medium transition-all duration-300 ${isActive ? "text-yellow-500" : "text-gray-400"
+              <span className={`text-xs font-medium transition-all duration-300 ${isActive ? "text-yellow-300" : "text-gray-600"
                 }`}>
                 {label}
               </span>

@@ -25,7 +25,7 @@ const keunggulan = [
 
 export default function Keunggulan() {
   return (
-    <section className="px-5 pt-2 pb-4">
+    <section className="bg-gray-50 px-5 pt-5 pb-2">
       <h2 className="text-xl font-bold text-gray-800 mb-4">Mengapa Memilih Kami?</h2>
       <div className="grid grid-cols-2 gap-3">
         {keunggulan.map(({ icon: Icon, title, desc }) => (

@@ -7,7 +7,6 @@ import { usePathname } from "next/navigation";
 export default function BottomNav() {
   const pathname = usePathname();
 
-  // Sembunyikan di halaman admin
   if (pathname.startsWith("/admin")) return null;
 
   const menus = [
@@ -18,18 +17,23 @@ export default function BottomNav() {
   ];
 
   return (
-    <nav className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-120 bg-white border-t border-gray-200 shadow-lg z-50">
-      <div className="flex items-center justify-around py-2">
+    <nav className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-120 bg-white border-t border-gray-100 shadow-lg z-50">
+      <div className="flex items-center justify-around py-2 px-2">
         {menus.map(({ href, label, icon: Icon }) => {
           const isActive = pathname === href;
           return (
             <Link
               key={href}
               href={href}
-              className="flex flex-col items-center gap-1 px-4 py-1"
+              className="flex flex-col items-center gap-1 px-3 py-1"
             >
-              <Icon className={`w-5 h-5 ${isActive ? "text-yellow-400" : "text-gray-400"}`} />
-              <span className={`text-xs font-medium ${isActive ? "text-yellow-400" : "text-gray-400"}`}>
+              <div className={`p-2 rounded-full transition-all duration-300 ${isActive ? "bg-yellow-400" : "bg-transparent"
+                }`}>
+                <Icon className={`w-5 h-5 transition-all duration-300 ${isActive ? "text-gray-800" : "text-gray-400"
+                  }`} />
+              </div>
+              <span className={`text-xs font-medium transition-all duration-300 ${isActive ? "text-yellow-500" : "text-gray-400"
+                }`}>
                 {label}
               </span>
             </Link>

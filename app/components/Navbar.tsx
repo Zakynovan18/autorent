@@ -39,13 +39,13 @@ export default function Navbar() {
       {/* Overlay */}
       {drawerOpen && (
         <div
-          className="fixed inset-0 bg-black/40 z-50"
+          className="fixed inset-0 bg-black/40 z-[60]"
           onClick={() => setDrawerOpen(false)}
         />
       )}
 
       {/* Drawer */}
-      <div className={`fixed top-0 right-0 h-full w-72 bg-white z-50 shadow-2xl transform transition-transform duration-300 ${drawerOpen ? "translate-x-0" : "translate-x-full"
+      <div className={`fixed top-0 right-0 h-full w-72 bg-white z-[70] shadow-2xl transform transition-transform duration-300 ${drawerOpen ? "translate-x-0" : "translate-x-full"
         }`}>
         {/* Drawer Header */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">

@@ -27,7 +27,7 @@ export default function BottomNav() {
               href={href}
               className="flex flex-col items-center gap-1 px-3 py-1"
             >
-              <div className={`p-2 rounded-full transition-all duration-300 ${isActive ? "bg-yellow-300" : "bg-transparent"
+              <div className={`p-2 rounded-full transition-all duration-300 ${isActive ? "bg-yellow-100" : "bg-transparent"
                 }`}>
                 <Icon className={`w-5 h-5 transition-all duration-300 ${isActive ? "text-gray-800" : "text-gray-600"
                   }`} />

@@ -19,7 +19,7 @@ const slides = [
     title: "Booking Mudah Langsung via WhatsApp",
     subtitle: "Cukup pilih mobil dan hubungi kami, siap antar ke lokasi kamu!",
     bg: "from-yellow-700 to-yellow-500",
-    image: "https://unsplash.com/photos/black-suv-on-brown-sand-under-white-cloudy-sky-during-daytime-XSiVaV0FpgM=800",
+    image: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=800",
   },
 ];
 
